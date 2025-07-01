@@ -1,3 +1,5 @@
+package org.example.Practice;
+
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 
