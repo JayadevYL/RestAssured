@@ -1,6 +1,8 @@
 package org.example.Auth;
 
 import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
+
 import static io.restassured.RestAssured.*;
 
 public class OauthTest {
@@ -15,6 +17,13 @@ public class OauthTest {
                 .when().post("oauthapi/oauth2/resourceOwner/token")
                 .then().log().all().assertThat().statusCode(200).extract().asString();
 
-       System.out.println(response);
+        JsonPath jp=new JsonPath(response);
+        String accessToken=jp.getString("access_token");
+
+
+        given().queryParams("access_token", accessToken)
+                .when().get("oauthapi/getCourseDetails")
+                .then().log().all().assertThat().statusCode(401).extract().asString();
+
     }
 }
