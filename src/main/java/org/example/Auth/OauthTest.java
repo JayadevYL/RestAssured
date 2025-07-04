@@ -2,6 +2,7 @@ package org.example.Auth;
 
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
+import org.example.Pojo.GetResponse;
 
 import static io.restassured.RestAssured.*;
 
@@ -21,9 +22,11 @@ public class OauthTest {
         String accessToken=jp.getString("access_token");
 
 
-        given().queryParams("access_token", accessToken)
+        GetResponse getResponse=given().queryParams("access_token", accessToken)
                 .when().get("oauthapi/getCourseDetails")
-                .then().log().all().assertThat().statusCode(401).extract().asString();
+                .then().log().all().assertThat().statusCode(401).extract().as(GetResponse.class);
+
+        System.out.println(getResponse.getLinkedIn());
 
     }
 }
