@@ -1,4 +1,4 @@
-package org.example.Practice;
+package org.example.demo;
 
 import io.restassured.path.json.JsonPath;
 

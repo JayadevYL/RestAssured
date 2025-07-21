@@ -1,4 +1,4 @@
-package org.example.Auth;
+package org.example.demo;
 
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;

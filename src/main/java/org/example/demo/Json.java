@@ -1,4 +1,4 @@
-package org.example.Practice;
+package org.example.demo;
 
 public class Json {
     public static String response(){
