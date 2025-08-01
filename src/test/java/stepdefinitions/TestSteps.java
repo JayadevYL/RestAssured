@@ -17,8 +17,8 @@ public class TestSteps {
        response=requestApi.getPostRequestResponse("api/users");
     }
     @Then("the API call got success with job {string}")
-    public void the_api_call_got_success_with_job(String status){
-        Assert.assertEquals(status,response.getJob());
+    public void the_api_call_got_success_with_job(String job){
+        Assert.assertEquals(job,response.getJob());
 
     }
 }
